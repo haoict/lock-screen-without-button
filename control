@@ -1,0 +1,9 @@
+Package: com.haoict.lockscreenwithoutbutton
+Name: Lock Screen Without Button
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Lock Screen without button, just double tap from Home
+Maintainer: Hao Nguyen
+Author: Hao Nguyen
+Section: Tweaks
