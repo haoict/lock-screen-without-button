@@ -9,7 +9,7 @@ Super lightweight. No battery affect. Just install, no preferences
 ## Features
 
 - Lock Screen without button, just double tap from Home
-- Support iOS 12 - 13
+- Support iOS 12 - 14
 
 ## Cydia Repo
 
@@ -38,23 +38,44 @@ Licensed under the [GPLv3 License](./LICENSE), Copyright © 2020-present Hao Ngu
 ## [Note] Advanced thingy for development
 
 <details>
-  <summary>Click to expand!</summary>
-  
-  Add your device IP in `~/.bash_profile` or in project's `Makefile` for faster deployment
-  ```base
-  THEOS_DEVICE_IP = 192.168.1.21
-  ```
+  <summary>Set up SSH Key - Click to expand!</summary>
+
+Add your device IP in `~/.bash_profile` or `~/.zprofile` or in project's `Makefile` for faster deployment
+```bash
+THEOS_DEVICE_IP = 192.168.1.12
+```
 
 Add SSH key for target deploy device so you don't have to enter ssh root password every time
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh -p 22 root@192.168.1.21 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh -p 22 root@192.168.1.12 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
 Build the final package
 
 ```bash
 FINALPACKAGE=1 make package
+```
+
+</details>
+
+<details>
+  <summary>Build with Simulator (simject) - Click to expand!</summary>
+
+Set up simject: https://github.com/angelXwind/simject
+
+Get 13.7 patched SDK from https://github.com/opa334/sdks, copy iPhoneSimulator13.7.sdk to $THEOS/sdks folder
+
+Build and setup with simject
+```bash
+SIMULATOR=1 make
+
+SIMULATOR=1 make setup
+```
+
+Respring simulator
+```bash
+./simject/bin/resim
 ```
 
 </details>

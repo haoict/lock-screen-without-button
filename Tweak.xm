@@ -1,3 +1,6 @@
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 @interface SpringBoard : UIApplication
 - (void)_simulateLockButtonPress;
 @end
